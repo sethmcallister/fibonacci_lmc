@@ -1,0 +1,26 @@
+# Creates a 'method' of such called LOOP, which repeats the following lines including loading the value 'PERV' from memory
+LOOP    LDA PREV
+        # Outputs the previous loaded value, in this case PREV
+        OUT
+        # Loads the value 'NEXT' from memory
+        LDA NEXT
+        # Adds the value of 'PREV' to 'NEXT'
+        ADD PREV
+        # Stoes the value of the sum above into memory as 'MEMORY'
+        STA MEMORY
+        # Loads the value 'NEXT' from memory
+        LDA NEXT
+        # Stores previous value in this case 'NEXT' into memory as 'PREV'
+        STA PREV
+        # Loads the value 'MEMORY' from memory
+        LDA MEMORY
+        # Stores the previosu value in this case 'MEMORY' into memory as 'NEXT'
+        STA NEXT
+        # BRA meaning brake always to a 'method' of such called LOOP
+        BRA LOOP
+# Creates a variable in memory called 'PREV' assigned to the data of 0
+PREV    DAT 0
+# Creates a variable in memory called 'NEXT' assigned to the data of 1
+NEXT    DAT 1
+# Creates a variable in memory called 'DAT' assigned to nothing
+MEMORY  DAT
