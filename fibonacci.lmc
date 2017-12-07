@@ -1,0 +1,13 @@
+LOOP    LDA PREV
+        OUT
+        LDA NEXT
+        ADD PREV
+        STA MEMORY
+        LDA NEXT
+        STA PREV
+        LDA MEMORY
+        STA NEXT
+        BRA LOOP
+PREV    DAT 0
+NEXT    DAT 1
+MEMORY  DAT
